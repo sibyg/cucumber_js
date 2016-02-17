@@ -1,10 +1,14 @@
+'use strict'
+
 var myAfterHooks = function () {
+
   this.registerHandler('AfterFeatures', function (event, callback) {
+    console.log('AfterFeatures')
     // clean up!
     // Be careful, there is no World instance available on `this` here
     // because all scenarios are done and World instances are long gone.
-    callback();
-  });
+    callback()
+  })
 }
 
-module.exports = myAfterHooks;
+module.exports = myAfterHooks

@@ -1,5 +1,6 @@
 var myHooks = function () {
   this.Before(function (scenario, callback) {
+      console.log('BeforeScenario')
     // Just like inside step definitions, "this" is set to a World instance.
     // It's actually the same instance the current scenario step definitions
     // will receive.
@@ -8,12 +9,12 @@ var myHooks = function () {
     // instance, we can fire some to prepare the application for the next
     // scenario:
 
-    this.bootFullTextSearchServer();
-    this.createSomeProducts();
+    //this.bootFullTextSearchServer()
+    //this.createSomeProducts()
 
     // Don't forget to tell Cucumber when you're done:
-    callback();
-  });
+    callback()
+  })
 
   this.Before("@search", "@filter,@abc", function (scenario, callback) {
     // This hook will be executed before scenarios tagged with @foo and either
@@ -21,21 +22,22 @@ var myHooks = function () {
 
     // ...
 
-    callback();
-  });
+    callback()
+  })
 
   this.After(function (scenario, callback) {
+      console.log('AfterScenario')
       // Again, "this" is set to the World instance the scenario just finished
       // playing with.
 
       // We can then do some cleansing:
 
-      this.emptyDatabase();
-      this.shutdownFullTextSearchServer();
+      //this.emptyDatabase()
+      //this.shutdownFullTextSearchServer()
 
       // Release control:
-      callback();
-    });
-};
+      callback()
+    })
+}
 
-module.exports = myHooks;
+module.exports = myHooks
