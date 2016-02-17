@@ -1,7 +1,9 @@
 var webdriver = require("selenium-webdriver")
 
-module.exports.World = function (callback) {
+function World() {
+
     console.log("Instantiating driver...")
+    this.webdriver = webdriver
     this.driver = new webdriver.Builder()
         .forBrowser('firefox')
         .build()
@@ -19,7 +21,9 @@ module.exports.World = function (callback) {
 
     this.shutdownFullTextSearchServer = function () {
     }
+}
 
-    callback()
+module.exports = function () {
+    this.World = World
 }
 

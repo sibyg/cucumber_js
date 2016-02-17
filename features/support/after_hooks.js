@@ -7,6 +7,7 @@ var myAfterHooks = function () {
     // clean up!
     // Be careful, there is no World instance available on `this` here
     // because all scenarios are done and World instances are long gone.
+    //this.driver.quit()
     callback()
   })
 }

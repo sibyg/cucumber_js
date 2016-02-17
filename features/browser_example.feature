@@ -1,4 +1,4 @@
-@nock
+@browser
 Feature: Example feature
   As a user of cucumber.js
   I want to have documentation on cucumber
